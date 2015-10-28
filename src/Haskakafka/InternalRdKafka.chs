@@ -161,7 +161,7 @@ instance Storable RdKafkaMetadataTopicT where
     <*> liftM fromIntegral ({#get rd_kafka_metadata_topic_t->partition_cnt #} p)
     <*> liftM castPtr ({#get rd_kafka_metadata_topic_t->partitions #} p)
     <*> liftM cIntToEnum ({#get rd_kafka_metadata_topic_t->err #} p)
-  poke p x = undefined
+  poke _ _ = undefined
 
 {#pointer *rd_kafka_metadata_topic_t as RdKafkaMetadataTopicTPtr -> RdKafkaMetadataTopicT #}
 
@@ -182,7 +182,7 @@ instance Storable RdKafkaMetadataT where
     <*> liftM fromIntegral ({#get rd_kafka_metadata_t->topic_cnt #} p)
     <*> liftM castPtr ({#get rd_kafka_metadata_t->topics #} p)
     <*> liftM fromIntegral ({#get rd_kafka_metadata_t->orig_broker_id #} p)
-  poke p x = undefined
+  poke _ _ = undefined
 
 {#pointer *rd_kafka_metadata_t as RdKafkaMetadataTPtr foreign -> RdKafkaMetadataT #}
 
